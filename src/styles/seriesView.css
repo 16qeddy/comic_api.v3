@@ -1,0 +1,14 @@
+.infoContainer{
+  justify-content: flex-end;
+}
+
+.flex{
+  display: flex;
+}
+.chapterLink{
+  width: fit-content;
+}
+
+.chapterLink:hover{
+  cursor: pointer;
+}
