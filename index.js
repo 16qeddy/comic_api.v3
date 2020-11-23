@@ -7,7 +7,7 @@ const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 4000;
-const address = process.env.PORT ? 'https://intense-earth-62649.herokuapp.com' : `http://localhost:${port}`;
+const address = process.env.PORT ? 'https://fast-bayou-41832.herokuapp.com' : `http://localhost:${port}`;
 
 app.use(cors());
 

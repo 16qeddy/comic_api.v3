@@ -41,7 +41,7 @@ class App extends Component {
   getComics(query) {
     let comics = [];
     this.toggleLoading();
-    axios.get(`https://intense-earth-62649.herokuapp.com/api/search-comic/${query}`)
+    axios.get(`https://fast-bayou-41832.herokuapp.com/api/search-comic/${query}`)
       .then((data) => {
         this.setState({
           comicList: data.data

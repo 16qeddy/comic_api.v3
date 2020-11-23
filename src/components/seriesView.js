@@ -2,27 +2,6 @@ import React from 'react';
 import '../styles/seriesView.css';
 import { Card, Jumbotron, Button, Col, Row } from 'react-bootstrap';
 
-// let SeriesView = (props) => {
-//   return (
-//     <Jumbotron>
-//       <div className="flex">
-//         <img src={props.series.image}></img>
-//         <div className="infoContainer">
-//           <h1>{props.series.title}</h1>
-//           <p>
-//             {props.series.description}
-//           </p>
-//           <ol>
-//             {props.series.chapters.reverse().map((comic) => {
-//               return (<li>{comic.title}</li>)
-//             })}
-//           </ol>
-//         </div>
-//       </div>
-//     </Jumbotron>
-//   )
-
-// }
 
 let SeriesView = (props) => {
   return (

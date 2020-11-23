@@ -13,7 +13,7 @@ let SearchNav = (props) => {
           <Nav.Link onClick={props.goHome} href="#home">Home</Nav.Link>
         </Nav>
         <Nav className="mr-auto">
-          <Nav.Link href="https://intense-earth-62649.herokuapp.com/download">Get the App</Nav.Link>
+          <Nav.Link href="https://fast-bayou-41832.herokuapp.com/download">Get the App</Nav.Link>
         </Nav>
         <Nav className="mr-auto">
           <Nav.Link onClick={props.goBack} href="#back">Back</Nav.Link>
