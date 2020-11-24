@@ -20,12 +20,12 @@ class App extends Component {
     };
     this.toggleLoading = this.toggleLoading.bind(this);
     this.getComics = this.getComics.bind(this);
-    this.searchOnChange = this.searchOnChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.seriesOnClick = this.seriesOnClick.bind(this);
     this.goHome = this.goHome.bind(this);
     this.chapterClick = this.chapterClick.bind(this);
     this.goBack = this.goBack.bind(this);
+    this.searchOnKeyUp = this.searchOnKeyUp.bind(this);
   }
 
   componentDidMount() {
@@ -47,14 +47,17 @@ class App extends Component {
           comicList: data.data
         })
         this.toggleLoading();
-        console.log(this.state.comicList);
       })
   }
 
-  searchOnChange(e) {
-    this.setState({
-      search: e.target.value
-    })
+  searchOnKeyUp(e){
+    if(e.key === 'Enter'){
+      this.onSubmit();
+    } else {
+      this.setState({
+        search: e.target.value
+      })
+    }
   }
 
   onSubmit() {
@@ -130,7 +133,7 @@ class App extends Component {
     if (this.state.chapter) {
       return (
         <>
-          <SearchNav onSubmit={this.onSubmit} searchOnChange={this.searchOnChange} goHome={this.goHome} goBack={this.goBack} />
+          <SearchNav onSubmit={this.onSubmit} searchOnKeyUp={this.searchOnKeyUp} goHome={this.goHome} goBack={this.goBack} />
           <ChapterView chapter={this.state.chapter} />
         </>
       )
@@ -138,14 +141,14 @@ class App extends Component {
     if (this.state.series) {
       return (
         <>
-          <SearchNav onSubmit={this.onSubmit} searchOnChange={this.searchOnChange} goHome={this.goHome} goBack={this.goBack} />
+          <SearchNav onSubmit={this.onSubmit} searchOnKeyUp={this.searchOnKeyUp} goHome={this.goHome} goBack={this.goBack} />
           <SeriesView handler={this.chapterClick} series={this.state.series} />
         </>
       )
     }
     return (
       <div className="yellowText AppContainer">
-        <SearchNav onSubmit={this.onSubmit} searchOnChange={this.searchOnChange} goHome={this.goHome} goBack={this.goBack} />
+         <SearchNav onSubmit={this.onSubmit} searchOnKeyUp={this.searchOnKeyUp} goHome={this.goHome} goBack={this.goBack} />
         <div className="comicSpace">
           <div className="sides"></div>
           <div className="center">

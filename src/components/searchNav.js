@@ -19,7 +19,7 @@ let SearchNav = (props) => {
           <Nav.Link onClick={props.goBack} href="#back">Back</Nav.Link>
         </Nav>
         <Form inline>
-          <FormControl onChange={props.searchOnChange} type="text" placeholder="Search" className="mr-sm-2" />
+          <FormControl onKeyUp={props.searchOnKeyUp} type="text" placeholder="Search" className="mr-sm-2" />
           <Button onClick={props.onSubmit} className="test" variant="dark">Search</Button>
         </Form>
       </Navbar.Collapse>
