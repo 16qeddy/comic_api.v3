@@ -18,7 +18,7 @@ let SearchNav = (props) => {
         <Nav className="mr-auto">
           <Nav.Link onClick={props.goBack} href="#back">Back</Nav.Link>
         </Nav>
-        <Form inline>
+        <Form inline onSubmit={props.onSubmit}>
           <FormControl onKeyUp={props.searchOnKeyUp} type="text" placeholder="Search" className="mr-sm-2" />
           <Button onClick={props.onSubmit} className="test" variant="dark">Search</Button>
         </Form>

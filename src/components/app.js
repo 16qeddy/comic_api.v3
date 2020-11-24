@@ -44,13 +44,17 @@ class App extends Component {
     axios.get(`https://fast-bayou-41832.herokuapp.com/api/search-comic/${query}`)
       .then((data) => {
         this.setState({
-          comicList: data.data
+          comicList: data.data,
+          search: '',
+          series: null,
+          chapter: null
         })
         this.toggleLoading();
       })
   }
 
   searchOnKeyUp(e){
+    console.log(e.key);
     if(e.key === 'Enter'){
       this.onSubmit();
     } else {
@@ -62,11 +66,6 @@ class App extends Component {
 
   onSubmit() {
     this.getComics(this.state.search);
-    this.setState({
-      search: '',
-      series: null,
-      chapter: null
-    })
   }
 
   seriesOnClick(comicSeries) {
