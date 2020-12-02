@@ -2,8 +2,19 @@ import React from 'react';
 import { Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap';
 import '../styles/app.css';
 
-let SearchNav = (props) => {
 
+let SearchNav = (props) => {
+  
+  function isNextChapter() {
+    if(props.nextChapterOnClick){
+      return(
+        <Nav className="mr-auto">
+          <Nav.Link onClick={props.nextChapterOnClick} href="#nextChapter">Next Chapter</Nav.Link>
+        </Nav>
+      )
+    }
+  }
+  
   return (
     <Navbar bg="danger" expand="lg">
       <Navbar.Brand className="yellowText" href="#home" onClick={props.goHome}>Robin Comics</Navbar.Brand>
@@ -18,6 +29,7 @@ let SearchNav = (props) => {
         <Nav className="mr-auto">
           <Nav.Link onClick={props.goBack} href="#back">Back</Nav.Link>
         </Nav>
+          {isNextChapter()}
         <Form inline onSubmit={props.onSubmit}>
           <FormControl onKeyUp={props.searchOnKeyUp} type="text" placeholder="Search" className="mr-sm-2" />
           <Button onClick={props.onSubmit} className="test" variant="dark">Search</Button>

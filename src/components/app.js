@@ -16,7 +16,8 @@ class App extends Component {
       loading: false,
       search: '',
       series: null,
-      chapter: null
+      chapter: null,
+      nextChapter: null
     };
     this.toggleLoading = this.toggleLoading.bind(this);
     this.getComics = this.getComics.bind(this);
@@ -26,6 +27,7 @@ class App extends Component {
     this.chapterClick = this.chapterClick.bind(this);
     this.goBack = this.goBack.bind(this);
     this.searchOnKeyUp = this.searchOnKeyUp.bind(this);
+    this.nextChapterOnClick = this.nextChapterOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -47,7 +49,8 @@ class App extends Component {
           comicList: data.data,
           search: '',
           series: null,
-          chapter: null
+          chapter: null,
+          nextChapter: null
         })
         this.toggleLoading();
       })
@@ -79,16 +82,19 @@ class App extends Component {
       loading: false,
       search: '',
       series: null,
-      chapter: null
+      chapter: null,
+      nextChapter: null
     })
   }
 
-  chapterClick(chapterURL) {
+  chapterClick(chapterURL, index) {
     this.toggleLoading();
+    let next = this.state.series.chapters[index - 1] ? [this.state.series.chapters[index - 1].url, index - 1] : null;
     axios.get(chapterURL)
       .then(data => {
         this.setState({
-          chapter: data.data
+          chapter: data.data,
+          nextChapter: next
         })
       })
       .then(() => {
@@ -109,6 +115,13 @@ class App extends Component {
       this.setState({
         series: null
       })
+    }
+  }
+  nextChapterOnClick(){
+    if(this.state.nextChapter){
+      this.chapterClick(this.state.nextChapter[0], this.state.nextChapter[1]);
+    } else {
+      this.goBack();
     }
   }
 
@@ -132,7 +145,7 @@ class App extends Component {
     if (this.state.chapter) {
       return (
         <>
-          <SearchNav onSubmit={this.onSubmit} searchOnKeyUp={this.searchOnKeyUp} goHome={this.goHome} goBack={this.goBack} />
+          <SearchNav onSubmit={this.onSubmit} searchOnKeyUp={this.searchOnKeyUp} goHome={this.goHome} goBack={this.goBack} nextChapterOnClick={this.nextChapterOnClick}/>
           <ChapterView chapter={this.state.chapter} />
         </>
       )

@@ -21,8 +21,8 @@ let SeriesView = (props) => {
           </Row>
           <Row>
             <Col>
-              {props.series.chapters.map((comic) => {
-                return (<div className="chapterLink" onClick={function () { props.handler(comic.url) }} key={comic.title}>{comic.title}</div>)
+              {props.series.chapters.map((comic, index) => {
+                return (<div className="chapterLink" onClick={function () { props.handler(comic.url, index) }} key={comic.title}>{comic.title}</div>)
               })}
             </Col>
           </Row>
