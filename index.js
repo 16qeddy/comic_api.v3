@@ -19,23 +19,11 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get("/download", (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'));
-});
-
-/////////inbrowser view endpoint//////////
+/////////in-browser view endpoint//////////
 app.use(express.static(path.join(__dirname, "dist")));
-
-/////////////download endpoints///////////
-app.get('/download/deb', function (req, res) {
-  var file = __dirname + '/exports/robin.deb'; res.download(file);
-  // Sets disposition, content-type etc. and sends it
-});
-
-app.get('/download/zip', function (req, res) {
-  var file = __dirname + '/exports/robin.zip'; res.download(file);
-  // Sets disposition, content-type etc. and sends it
-});
+app.use('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+})
 
 
 ////////////data endpoints////////////////

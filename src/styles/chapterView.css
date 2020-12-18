@@ -1,9 +1,0 @@
-.chapters{
-  display: flex;
-  justify-content: center;
-}
-
-.image{
-  max-height: 850px !important;
-  max-width: 1500px !important;
-}

@@ -1,0 +1,73 @@
+body{
+  background-color: rgb(26,30,37);
+  background-image: linear-gradient(to bottom right, rgb(26,30,37) , rgb(12, 61, 80));
+}
+
+.flexContainer{
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 600px) {
+  .flexContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .comicCard{
+    border:none !important;
+    max-height: none !important;
+  }
+
+  .cardColumn{
+    display: none !important;
+  }
+
+  .comicCover{
+    width: fit-content !important;
+  }
+
+  .comicCard img {
+    width: 100%;
+  }
+}
+
+.comicCard{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  max-height: 100px;
+  border-bottom: rgb(83, 83, 83) 1px solid;
+}
+
+
+.comicCover{
+  /* flex: 1; */
+  overflow: hidden;
+  border-radius: 24px;
+  width: 100px;
+}
+
+.cardColumn{
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  padding-left: 8px;
+  min-width: 0;
+}
+
+.cardColumn span{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: darkgray;
+}
+
+.comicCard img {
+  width: 100%;
+}
+.comicCard h4 {
+  font-family: sans-serif;
+  color: aqua;
+}
