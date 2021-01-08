@@ -1,0 +1,73 @@
+.navBar{
+  display: flex;
+  width: 100%;
+  position: fixed;
+  height: 45px;
+  top: 0px;
+  background-color: rgb(23,26,33);
+  padding: 2px 12px;
+}
+
+#homeBtn{
+  background-color: rgb(55,111,150);
+  padding: 4px;
+  height: fit-content;
+  border-radius: 100%;
+  align-self: center;
+}
+
+ #homeBtn:hover{
+   background-image: linear-gradient(to bottom right, rgb(0, 174, 255), rgb(0, 255, 234));
+ }
+
+ #searchCard{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding-right: 25px;
+ }
+
+ #searchBar{
+  height: 50%;
+  align-self: center;
+  background-color: rgb(52 58 74);
+  color: white;
+ }
+
+ #submitBtn{
+  background-color: rgb(55,111,150);
+  height: fit-content;
+  align-self: center;
+  border-radius: 100%;
+  padding: 3px;
+  margin-left: 12px;
+ }
+
+ #submitBtn:hover{
+  background-image: linear-gradient(to bottom right, rgb(0, 174, 255), rgb(0, 255, 234));
+ }
+
+ 
+.homeNavBar{
+  display: flex;
+  background-color: rgb(23,26,33);
+  padding: 2px 12px;
+  margin-bottom: 65px;
+}
+
+.homeNavBar h1{
+  align-self: center;
+  white-space: nowrap;
+  color: white;
+}
+
+.homeNavBar #submitBtn{
+  background-color: rgb(55,111,150);
+  height: 40px;
+  width: 40px;
+}
+
+.homeNavBar #submitBtn img{
+  margin-left: 20%;
+  margin-top: 15%;
+}

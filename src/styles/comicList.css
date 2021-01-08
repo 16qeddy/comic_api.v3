@@ -1,13 +1,11 @@
-body{
-  background-color: rgb(26,30,37);
-  background-image: linear-gradient(to bottom right, rgb(26,30,37) , rgb(12, 61, 80));
-}
+
 
 .flexContainer{
   display: flex;
   flex-direction: column;
+  margin: 45px 10px 10px;
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 900px) {
   .flexContainer{
     display: flex;
     flex-direction: row;
@@ -57,7 +55,7 @@ body{
   min-width: 0;
 }
 
-.cardColumn span{
+.cardColumn div{
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -68,6 +66,6 @@ body{
   width: 100%;
 }
 .comicCard h4 {
-  font-family: sans-serif;
-  color: aqua;
+  font-weight: 400;
+  color: white;
 }

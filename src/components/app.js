@@ -2,6 +2,10 @@
 import React, { Component } from "react";
 import comicData from '../mockData/comicData.js';
 import ComicList from './comicList.js';
+import NavBar from './navBar.js';
+import Home from './home.js';
+import '../styles/app.css';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,9 +13,6 @@ import {
   Link
 } from "react-router-dom";
 
-function Home() {
-  return <h2>Home</h2>;
-}
 
 class App extends Component {
   constructor() {
@@ -28,7 +29,8 @@ class App extends Component {
       <Router>
         <Switch>
           <Route path="/comic-list/" exact={false}>
-           <ComicList list={comicData}/>
+            <NavBar/>
+            <ComicList list={comicData}/>
           </Route>
           <Route path="/">
             <Home/>

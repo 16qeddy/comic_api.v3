@@ -12,7 +12,7 @@ let ComicList = (props) => {
             </div>
             <div className="cardColumn">
               <h4>{item.title}</h4>
-              <span>{item.description}</span>
+              <div>{item.description}</div>
             </div>
           </div>
         )

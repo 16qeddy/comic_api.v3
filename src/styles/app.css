@@ -1,0 +1,9 @@
+html, body{
+  background-color: rgb(27,40,56);
+  background-image: linear-gradient(to bottom right, rgb(27,40,56) , rgb(12, 61, 80));
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
