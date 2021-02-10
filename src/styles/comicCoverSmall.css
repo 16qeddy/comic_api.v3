@@ -1,0 +1,26 @@
+.recommended{
+  display: flex;
+  overflow-x: scroll;
+}
+
+.recCard{
+  height: 100%;
+}
+
+.recCoverCard{
+  margin: 10px;
+  height: 115px;
+  overflow: hidden;
+  border-radius: 25%;
+}
+
+.recCoverCard img{
+  max-width: 115px;
+}
+
+.recTitle{
+  color: rgb(199, 213, 224);
+  font-size: 18px;
+  font-weight: 300;
+  margin-left: 20px;
+}

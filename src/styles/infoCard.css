@@ -1,0 +1,66 @@
+.comicInfoCard{
+  background-color: rgb(23,26,33);
+  height: 60%;
+  border-radius: 8%;
+  color: white;
+}
+
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.infoTitle{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media only screen and (max-height: 600px) {
+  .infoCardDescBox{
+    height: 35% !important;
+  }
+}
+
+.infoCardDescBox{
+  height: 40%;
+  overflow: scroll;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.infoBtnBox{
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 900px) {
+
+  .comicInfoCard{
+    width: 50%;
+    height: 100% !important;
+    border-radius: 0% !important;
+  }
+
+  .infoCardDescBox{
+    font-size: x-large;
+    height: 60% !important;
+  }
+
+  .infoTitle{
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+}
+
+.chapterBox{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  max-height: 100px;
+  border-bottom: rgb(83, 83, 83) 1px solid;
+}

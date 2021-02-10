@@ -1,59 +1,9 @@
-
-#popular{
-  display: flex;
-  overflow: scroll;
-  margin-bottom: 33px;
-}
-
-#recommended{
-  display: flex;
-  overflow: scroll;
-}
-
-.recCard{
+#home{
   height: 100%;
 }
 
-.recCoverCard{
-  margin: 10px;
-  height: 115px;
-  overflow: hidden;
-  border-radius: 25%;
-}
 
-.recCoverCard img{
-  max-width: 115px;
-}
-
-.recTitle{
-  color: rgb(199, 213, 224);
-  font-size: 18px;
-  font-weight: 300;
-  margin-left: 20px;
-}
-
-.popCover{
-  border-radius: 15%;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-.popCard{
-  /* max-width: 200px;
-  max-height: 280px; */
-  margin: 10px;
-}
-
-.popCover img{
-  height: 100%;
-}
-
-.options{
+.homeContainer{
   display: flex;
-  margin-top: 10px;
-  color: rgb(199, 213, 224);
-  font-size: 18px;
-  font-weight: 300;
-  padding-left: 20px;
+  flex-direction: column;
 }

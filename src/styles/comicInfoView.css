@@ -1,0 +1,37 @@
+.comicInfoContainer{
+  height: 100%;
+  width: 100%; 
+  background-size: cover;
+  overflow: scroll;
+}
+.comicInfoContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.InfoSpacer {
+  height: 50%
+}
+
+
+.InfoColumn{
+  height: 125%;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 900px) {
+  .InfoSpacer{
+    width: 50% !important;
+  }
+
+  .InfoColumn{
+    height: 100% !important;
+    width: 200%;
+    display: flex;
+  }
+
+  .comicInfoContainer{
+    width: 50% !important; 
+    background-size: cover;
+    overflow: visible !important;
+  }
+}

@@ -177,7 +177,7 @@ app.get("/comic/:title/:chapter", async (req, res) => {
 
 
 
-/////////////////////////////////////////////////////////
+///////////////////////////all in one comic info//////////////////////////////
 app.get("/api/search-comic/:title", async (req, res) => {
   var comics = [];
   await axios.get(`${address}/search/${req.params.title}`)

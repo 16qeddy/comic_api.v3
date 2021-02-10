@@ -1,40 +1,37 @@
 import React from 'react'
 import recommended from '../mockData/recommended.js';
 import comicList from '../mockData/comicData.js';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+import ComicCoverSmall from './comicCoverSmall.js';
+import ComicCoverBig from './comicCoverBig.js';
 import NavBar from './navBar.js';
 import '../styles/home.css';
+import '../styles/scrollBars.css';
+
+//renders home screen. add functionality to not use mock data for recommended and popular
+export default function Home(props) {
 
 
-export default function Home() {
-  return (
-    <div id="home">
-      <NavBar home={true}/>
-      <div className="options">
-        <span>Popular</span>
+  if(useMediaQuery('(min-width:900px)')){
+    
+    return(
+      <div id="home">
+        <NavBar home={true}/>
+        <div className="homeContainer">
+          <ComicCoverBig list = {comicList}/>
+          <ComicCoverBig list = {recommended} title="Recommended"/>
+        </div>
       </div>
-      <div id="popular">
-        {comicList.map((e)=>{
-          return (
-          <div className="popCard">
-            <div className="popCover">
-              <img src={e.image}></img>
-            </div>
-          </div>
-          )
-        })}
+    )
+  }
+    return (
+      <div id="home">
+        <NavBar home={true}/>
+        <div className="homeContainer">
+          <ComicCoverBig list = {comicList}/>
+          <ComicCoverSmall list = {recommended}/>
+        </div>
       </div>
-      <span className="recTitle">Recommended</span>
-      <div id="recommended">
-      {recommended.map((e)=>{
-          return (
-          <div className="recCard">
-            <div className="recCoverCard">
-              <img src={e.image}></img>
-            </div>
-          </div>
-          )
-        })}
-      </div>
-    </div>
-  )
+    )
 }

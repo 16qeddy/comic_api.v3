@@ -47,7 +47,14 @@
   width: 100px;
 }
 
-.cardColumn{
+.cardColumn {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  padding-left: 8px;
+  min-width: 0;
+}
+.noResults{
   display: flex;
   flex-direction: column;
   flex: 3;
@@ -68,4 +75,10 @@
 .comicCard h4 {
   font-weight: 400;
   color: white;
+}
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: none;
 }

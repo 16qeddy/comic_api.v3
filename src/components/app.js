@@ -4,13 +4,14 @@ import comicData from '../mockData/comicData.js';
 import ComicList from './comicList.js';
 import NavBar from './navBar.js';
 import Home from './home.js';
+import ComicInfoView from './comicInfoView';
+import ComicView from './comicView';
 import '../styles/app.css';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 
@@ -18,7 +19,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-  
+      
     };
   }
 
@@ -28,9 +29,16 @@ class App extends Component {
     return  (
       <Router>
         <Switch>
-          <Route path="/comic-list/" exact={false}>
+          <Route path="/comic-list/:query" exact={false}>
             <NavBar/>
             <ComicList list={comicData}/>
+          </Route>
+          <Route path="/comic-info/:title">
+            <ComicInfoView />
+          </Route>
+          <Route path="/comic-view/:title/:chapter">
+            <NavBar fixed={false}/>
+            <ComicView/>
           </Route>
           <Route path="/">
             <Home/>
