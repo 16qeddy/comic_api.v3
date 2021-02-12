@@ -21,7 +21,7 @@ export default function InfoCard(props) {
         <div className="infoCardDescBox">
           {props.comic.chapters.map((chapter, index) => {
             return(
-              <NavLink to={`/comic-view/${chapter.url.replace("https://fast-bayou-41832.herokuapp.com/comic/", '')}`}>
+              <NavLink to={`/comic-view/${chapter.url.replace("https://fast-bayou-41832.herokuapp.com/comic/", '')}/${props.series}`}>
                 <div className="chapterBox">
                   <h4>{chapter.title}</h4>
                 </div>

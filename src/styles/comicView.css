@@ -1,0 +1,39 @@
+.comicViewContainer{
+  display: flex;
+  flex-direction: column;
+  padding-top: 49px;
+  width: 100%;
+  height: -webkit-fill-available;
+}
+
+.pageContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.comicPage{
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.comicViewBtnContainer{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.prevArrow {
+  transform: scaleX(-1);
+}
+
+@media only screen and (max-height: 500px) {
+  .comicViewBtnContainer{
+    height: 100%;
+    position: fixed;
+  }
+}

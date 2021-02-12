@@ -36,8 +36,8 @@ class App extends Component {
           <Route path="/comic-info/:title">
             <ComicInfoView />
           </Route>
-          <Route path="/comic-view/:title/:chapter">
-            <NavBar fixed={false}/>
+          <Route path="/comic-view/:title/:chapter/:series">
+            <NavBar/>
             <ComicView/>
           </Route>
           <Route path="/">

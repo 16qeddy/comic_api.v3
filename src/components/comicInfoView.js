@@ -3,6 +3,7 @@ import axios from 'axios';
 import { withRouter } from "react-router";
 import InfoCard from "./infoCard.js";
 import '../styles/comicInfoView.css';
+import Loading from './loading.js';
 
 import {
   BrowserRouter as Router,
@@ -22,6 +23,8 @@ class ComicInfoView extends Component {
     this.state = {
        comic: {},
        chapterView: false,
+       loading: true,
+       series: '' 
     }
 
     this.toggleChapterView = this.toggleChapterView.bind(this);
@@ -29,9 +32,10 @@ class ComicInfoView extends Component {
   
   componentDidMount(){
     let title = this.props.match.params.title;
+    console.log(title)
     axios.get(`https://fast-bayou-41832.herokuapp.com/api/search-comic/${title}`)
     .then(data=>{
-      this.setState({comic: data.data[0]})
+      this.setState({comic: data.data[0], loading: false, series: title})
     })
   }
 
@@ -42,11 +46,16 @@ class ComicInfoView extends Component {
   }
 
   render() {
+    if(this.state.loading){
+      return(
+        <Loading/>
+      )
+    }
     return (
       <div className="comicInfoContainer" style={{backgroundImage:`url(${this.state.comic.image})`}}>
         <div className="InfoColumn">
           <div className="InfoSpacer"/>
-          <InfoCard comic={this.state.comic} chapterView={this.state.chapterView} clickFunc={this.toggleChapterView}/>
+          <InfoCard series={this.state.series} comic={this.state.comic} chapterView={this.state.chapterView} clickFunc={this.toggleChapterView}/>
         </div>
       </div>
     )
