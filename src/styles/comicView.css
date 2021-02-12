@@ -37,3 +37,14 @@
     position: fixed;
   }
 }
+
+.nextPrevBtn{
+  background-color: rgb(55,111,150);
+  height: fit-content;
+  align-self: center;
+  padding: 12px;
+}
+
+.pageContainer a:-webkit-any-link {
+  display: flex;
+}

@@ -32,7 +32,6 @@ class ComicInfoView extends Component {
   
   componentDidMount(){
     let title = this.props.match.params.title;
-    console.log(title)
     axios.get(`https://fast-bayou-41832.herokuapp.com/api/search-comic/${title}`)
     .then(data=>{
       this.setState({comic: data.data[0], loading: false, series: title})

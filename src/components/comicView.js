@@ -16,7 +16,10 @@ class ComicView extends Component {
        pages: [],
        index: 0,
        loading: true,
-       redirect: false
+       redirect: false,
+       chapter: '',
+       series: '',
+       title: ''
     }
     this.getPages = this.getPages.bind(this);
     this.prevArrowOnClick = this.prevArrowOnClick.bind(this);
@@ -27,21 +30,41 @@ class ComicView extends Component {
     this.getPages();
   }
 
+  componentDidUpdate(prevProps) {
+    //checks if the url params changed, if so the chapter will change
+    let chapterCheck = this.props.match.params.chapter !== prevProps.match.params.chapter;
+    let titleCheck = this.props.match.params.title !== prevProps.match.params.title;
+    let seriesCheck = this.props.match.params.series !== prevProps.match.params.series;
+    if (chapterCheck || titleCheck || seriesCheck) {
+      this.getPages();
+    }
+  }
+
   getPages(){
-    let title = this.props.match.params.title;
+    //gets the comic data from the url
     let chapter = this.props.match.params.chapter;
+    let title = this.props.match.params.title;
     let series = this.props.match.params.series;
     this.setState({loading: true})
     axios.get(`https://fast-bayou-41832.herokuapp.com/comic/${title}/${chapter}`)
     .then(data=>{
+      //if there is no data to get (chapter dose not exist) it will redirect to comic info page
       if(data.data.length === 0){
         this.setState({redirect: `/comic-info/${series}`, loading: false});
       } else {
-        this.setState({pages: data.data, loading: false});
+        this.setState({
+          pages: data.data,
+          loading: false, 
+          index: 0,
+          title: title,
+          chapter: chapter,
+          series: series
+        });
       }
     })
   }
 
+  //onClick functions to cycle through pages
   prevArrowOnClick(){
     this.setState({index: this.state.index - 1});
   }
@@ -68,7 +91,9 @@ class ComicView extends Component {
             <div className="comicPage" style={{backgroundImage:`url(${this.state.pages[this.state.index]['image']})`}}></div>
             <div className="comicViewBtnContainer">
               <Btns clickFunc={this.prevArrowOnClick} className ="prevArrow" icon="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-arrow-50.png"/>
-              <Btns text ="Next Chapter"/>
+              <NavLink to={`/comic-view/${this.state.title}/${Number(this.state.chapter) + 1}/${this.state.series}`}>
+                <Btns className="nextPrevBtn" text ="Next Chapter"/>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -80,7 +105,9 @@ class ComicView extends Component {
           <div className="pageContainer">
             <div className="comicPage" style={{backgroundImage:`url(${this.state.pages[this.state.index]['image']})`}}></div>
             <div className="comicViewBtnContainer">
-              <Btns text ="Prev Chapter"/>
+              <NavLink to={`/comic-view/${this.state.title}/${Number(this.state.chapter) - 1}/${this.state.series}`}>
+                <Btns className="nextPrevBtn" text ="Prev Chapter"/>
+              </NavLink>
               <Btns clickFunc={this.nextArrowOnClick} icon="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-arrow-50.png"/>
             </div>
           </div>
