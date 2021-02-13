@@ -1,12 +1,13 @@
 
 import React, { Component } from "react";
-import comicData from '../mockData/comicData.js';
 import ComicList from './comicList.js';
 import NavBar from './navBar.js';
 import Home from './home.js';
 import ComicInfoView from './comicInfoView';
 import ComicView from './comicView';
+import axios from 'axios';
 import '../styles/app.css';
+
 
 import {
   BrowserRouter as Router,
@@ -19,10 +20,26 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      
+      loading: true,
+      recommended: [],
+      popular: []
     };
   }
 
+  //gets data for popular and recommended. ///implement logic to determine actual rec and pop///
+  componentDidMount(){
+    axios.all([
+    axios.get(`https://fast-bayou-41832.herokuapp.com/api/search-comic/carnage`), 
+    axios.get(`https://fast-bayou-41832.herokuapp.com/api/search-comic/saga`)
+    ])
+    .then((data)=>{
+      this.setState({
+        popular: data[0].data,
+        recommended: data[1].data,
+        loading: false
+      })
+    })
+  }
 
 
   render() {
@@ -31,7 +48,7 @@ class App extends Component {
         <Switch>
           <Route path="/comic-list/:query" exact={false}>
             <NavBar/>
-            <ComicList list={comicData}/>
+            <ComicList/>
           </Route>
           <Route path="/comic-info/:title">
             <ComicInfoView />
@@ -41,7 +58,7 @@ class App extends Component {
             <ComicView/>
           </Route>
           <Route path="/">
-            <Home/>
+            <Home loading={this.state.loading} popular={this.state.popular} recommended={this.state.recommended}/>
           </Route>
         </Switch>
       </Router>
