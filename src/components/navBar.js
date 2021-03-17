@@ -2,6 +2,8 @@ import '../styles/navBar.css';
 import {NavLink} from "react-router-dom";
 import React, { Component } from 'react'
 import { withRouter } from "react-router";
+import homeIcon from '../assets/icons8-home-24.png';
+import searchIcon from '../assets/icons8-search-24.png';
 class NavBar extends Component {
 
     constructor(props) {
@@ -44,7 +46,7 @@ class NavBar extends Component {
         <div id="searchCard">
           <NavLink to='/comic-list/search'>
             <div id="submitBtn">
-              <img src="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-search-24.png"></img>
+              <img src={searchIcon}></img>
             </div>
           </NavLink>
         </div>
@@ -57,14 +59,14 @@ class NavBar extends Component {
         <div className="navBarNoFixed">
           <NavLink to="/">
             <div id="homeBtn">
-              <img id="homeBtnIcon" src="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-home-24.png"></img>
+              <img id="homeBtnIcon" src={homeIcon}></img>
             </div>
           </NavLink>
           <div id="searchCard">
             <input id="searchBar" placeholder="Search..." onKeyUp={this.searchOnEnter} onChange={this.searchOnChange}></input>
             <NavLink to={`/comic-list/${this.state.query}`}>
               <div id="submitBtn">
-                <img src="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-search-24.png"></img>
+                <img src={searchIcon}></img>
               </div>
             </NavLink>
           </div>
@@ -76,14 +78,14 @@ class NavBar extends Component {
       <div className="navBar">
         <NavLink to="/">
           <div id="homeBtn">
-            <img id="homeBtnIcon" src="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-home-24.png"></img>
+            <img id="homeBtnIcon" src={homeIcon}></img>
           </div>
         </NavLink>
         <div id="searchCard">
           <input id="searchBar" placeholder="Search..." onKeyUp={this.searchOnEnter} onChange={this.searchOnChange}></input>
           <NavLink to={`/comic-list/${this.state.query}`}>
             <div id="submitBtn">
-              <img src="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-search-24.png"></img>
+              <img src={searchIcon}></img>
             </div>
           </NavLink>
         </div>

@@ -5,6 +5,7 @@ import Loading from './loading.js';
 import axios from 'axios';
 import Btns from './btns.js';
 import '../styles/comicView.css';
+import arrowIcon from '../assets/icons8-arrow-50.png';
 
 
 class ComicView extends Component {
@@ -90,7 +91,7 @@ class ComicView extends Component {
           <div className="pageContainer">
             <div className="comicPage" style={{backgroundImage:`url(${this.state.pages[this.state.index]['image']})`}}></div>
             <div className="comicViewBtnContainer">
-              <Btns clickFunc={this.prevArrowOnClick} className ="prevArrow" icon="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-arrow-50.png"/>
+              <Btns clickFunc={this.prevArrowOnClick} className ="prevArrow" icon={arrowIcon}/>
               <NavLink to={`/comic-view/${this.state.title}/${Number(this.state.chapter) + 1}/${this.state.series}`}>
                 <Btns className="nextPrevBtn" text ="Next Chapter"/>
               </NavLink>
@@ -108,7 +109,7 @@ class ComicView extends Component {
               <NavLink to={`/comic-view/${this.state.title}/${Number(this.state.chapter) - 1}/${this.state.series}`}>
                 <Btns className="nextPrevBtn" text ="Prev Chapter"/>
               </NavLink>
-              <Btns clickFunc={this.nextArrowOnClick} icon="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-arrow-50.png"/>
+              <Btns clickFunc={this.nextArrowOnClick} icon={arrowIcon}/>
             </div>
           </div>
         </div>
@@ -119,8 +120,8 @@ class ComicView extends Component {
         <div className="pageContainer">
           <div className="comicPage" style={{backgroundImage:`url(${this.state.pages[this.state.index]['image']})`}}></div>
           <div className="comicViewBtnContainer">
-            <Btns clickFunc={this.prevArrowOnClick} className ="prevArrow" icon="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-arrow-50.png"/>
-            <Btns clickFunc={this.nextArrowOnClick} icon="https://s3.us-east-2.amazonaws.com/images.for.hrr/icons8-arrow-50.png"/>
+            <Btns clickFunc={this.prevArrowOnClick} className ="prevArrow" icon={arrowIcon}/>
+            <Btns clickFunc={this.nextArrowOnClick} icon={arrowIcon}/>
           </div>
         </div>
       </div>

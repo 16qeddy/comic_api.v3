@@ -14,7 +14,7 @@ export default function Home(props) {
 
   if(props.loading){
     return(
-      <Loading/>
+      <Loading />
     )
   }
 
